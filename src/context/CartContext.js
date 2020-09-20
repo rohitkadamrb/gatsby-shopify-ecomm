@@ -27,7 +27,7 @@ export function CartContextProvider({ children }) {
     const getCheckout = async () => {
       if (checkoutId && typeof window !== 'undefined') {
         const fetchedCheckout = await client.checkout.fetch(checkoutId);
-        if (fetchedCheckout?.completedAt) {
+        if (fetchedCheckout.completedAt) {
           localStorage.removeItem('checkout');
           setCheckout(null);
           setSuccessfulOrder(fetchedCheckout);
